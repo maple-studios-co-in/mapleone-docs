@@ -1,0 +1,376 @@
+<svg width="2480" height="1680" viewBox="0 0 2480 1680" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8f1f2b"/>
+    </marker>
+    <marker id="arrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b6560"/>
+    </marker>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e6e1d5"/>
+    </pattern>
+  </defs>
+
+  <!-- whiteboard canvas -->
+  <rect width="2480" height="1680" fill="#fbfaf7"/>
+  <rect width="2480" height="1680" fill="url(#dots)"/>
+
+  <!-- title band -->
+  <rect x="0" y="0" width="2480" height="70" fill="#8f1f2b"/>
+  <text x="40" y="34" font-family="Georgia, serif" font-size="25" font-weight="bold" fill="#ffffff">MapleOne — Developer Architecture</text>
+  <text x="40" y="57" font-family="Georgia, serif" font-style="italic" font-size="13.5" fill="#f3e3c3">Every module interconnected by default — and deployable standalone when needed. No flagships: flagship is a status, not an architecture.</text>
+  <text x="2440" y="30" text-anchor="end" font-size="12" fill="#f3e3c3">Maple Studios · July 2026 · v1</text>
+  <text x="2440" y="50" text-anchor="end" font-size="11" fill="#f3e3c3">grounded in maple-suite · maple-quotations · Maple-Photoshoot · MapleLens</text>
+
+  <!-- stack strip -->
+  <text x="40" y="112" font-size="12" font-weight="bold" fill="#8f1f2b" letter-spacing="2">STACK</text>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <rect x="130" y="92" width="157" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="208" y="111" text-anchor="middle">Next.js 16 App Router</text>
+    <rect x="297" y="92" width="71" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="332" y="111" text-anchor="middle">React 19</text>
+    <rect x="378" y="92" width="130" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="443" y="111" text-anchor="middle">TypeScript strict</text>
+    <rect x="518" y="92" width="91" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="563" y="111" text-anchor="middle">Tailwind v4</text>
+    <rect x="619" y="92" width="77" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="657" y="111" text-anchor="middle">Turborepo</text>
+    <rect x="706" y="92" width="71" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="741" y="111" text-anchor="middle">Prisma 6</text>
+    <rect x="787" y="92" width="91" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="832" y="111" text-anchor="middle">Postgres 16</text>
+    <rect x="888" y="92" width="84" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="930" y="111" text-anchor="middle">jose (JWT)</text>
+    <rect x="982" y="92" width="110" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="1037" y="111" text-anchor="middle">Docker Compose</text>
+    <rect x="1102" y="92" width="64" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="1134" y="111" text-anchor="middle">Caddy 2</text>
+    <rect x="1176" y="92" width="104" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="1228" y="111" text-anchor="middle">Anthropic SDK</text>
+    <rect x="1290" y="92" width="51" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="1315" y="111" text-anchor="middle">sharp</text>
+    <rect x="1351" y="92" width="143" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="1422" y="111" text-anchor="middle">@react-pdf/renderer</text>
+    <rect x="1504" y="92" width="143" height="30" rx="15" fill="#ffffff" stroke="#d8d2c4"/><text x="1575" y="111" text-anchor="middle">Vitest + Playwright</text>
+  </g>
+
+  <!-- ============ F1 EDGE & IDENTITY ============ -->
+  <text x="40" y="144" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">1 · EDGE &amp; IDENTITY</text>
+  <rect x="40" y="152" width="1180" height="248" rx="10" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+
+  <rect x="60" y="172" width="560" height="208" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="78" y="196" font-size="12.5" font-weight="bold" fill="#6f1620">EDGE — Caddy 2 (auto-TLS · reverse proxy · one block per subdomain)</text>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="78" y="222">quotations.maplefurnishers.com  →  quotations:3000</text>
+    <text x="78" y="244">photoshoot.maplefurnishers.com  →  photoshoot:3000</text>
+    <text x="78" y="266">&lt;module&gt;.customerbrand.com     →  same containers (white-label)</text>
+    <text x="78" y="294" fill="#6b6560">Host header → getBrand() → Tenant row → logo · colors · company</text>
+    <text x="78" y="316" fill="#6b6560">unknown host → first-tenant fallback (dev only)</text>
+    <text x="78" y="344" fill="#6b6560">web = public site · admin = tenant settings · users = user mgmt</text>
+  </g>
+
+  <rect x="640" y="172" width="560" height="208" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="658" y="196" font-size="12.5" font-weight="bold" fill="#6f1620">IDENTITY — one login for all 19 apps</text>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="658" y="222">jose JWT in mt_session cookie · cookie domain = SSO_DOMAIN</text>
+    <text x="658" y="244">shared AUTH_SECRET verifies everywhere — no token exchange</text>
+    <text x="658" y="266">safeNext() guards cross-subdomain redirects (open-redirect safe)</text>
+    <text x="658" y="294">RBAC: Role model + permissions.ts per module action</text>
+    <text x="658" y="316">flags.ts (Flipt server): tools on/off per plan → ToolDisabled</text>
+    <text x="658" y="344" fill="#6b6560">standalone mode reuses the same JWT claim shape (see frame 6)</text>
+  </g>
+
+  <!-- ============ F5 CHANNELS ============ -->
+  <text x="1260" y="144" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">2 · COMMUNICATION CHANNELS — independent, yet connected</text>
+  <rect x="1260" y="152" width="1180" height="248" rx="10" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+  <g font-family="Menlo, monospace" font-size="11.5" fill="#1c1917">
+    <line x1="1284" y1="186" x2="1360" y2="186" stroke="#8f1f2b" stroke-width="2.5"/>
+    <text x="1376" y="190"><tspan font-weight="bold" fill="#6f1620">C1 shared DB records</tspan> — one Client/Product/Tenant/User + cross-module FKs (Order→Quotation,</text>
+    <text x="1376" y="206">Payment→Invoice) · modules join in SQL, not over HTTP</text>
+
+    <line x1="1284" y1="232" x2="1360" y2="232" stroke="#8f1f2b" stroke-width="1.6"/>
+    <line x1="1284" y1="237" x2="1360" y2="237" stroke="#8f1f2b" stroke-width="1.6"/>
+    <text x="1376" y="239"><tspan font-weight="bold" fill="#6f1620">C2 single session</tspan> — one JWT cookie on the parent domain; every app verifies with the same secret</text>
+
+    <line x1="1284" y1="272" x2="1360" y2="272" stroke="#8f1f2b" stroke-width="2.5" stroke-dasharray="8,5"/>
+    <text x="1376" y="276"><tspan font-weight="bold" fill="#6f1620">C3 async events</tspan> — OutboxEvent same-TX write pattern (quotation.accepted → orders) · model exists</text>
+    <text x="1376" y="292">in maple-quotations, <tspan fill="#a3541a">no writer yet — build writers + dispatcher on fold-in</tspan></text>
+
+    <line x1="1284" y1="318" x2="1360" y2="318" stroke="#8f1f2b" stroke-width="2.5" stroke-dasharray="2,5"/>
+    <text x="1376" y="322"><tspan font-weight="bold" fill="#6f1620">C4 HTTP APIs</tspan> — each app's app/api/* REST routes · own UI now, detached modules &amp; integrations</text>
+    <text x="1376" y="338">later (same JWT / API token)</text>
+
+    <line x1="1284" y1="364" x2="1360" y2="364" stroke="#8f1f2b" stroke-width="2.5" stroke-dasharray="14,6"/>
+    <text x="1376" y="368"><tspan font-weight="bold" fill="#6f1620">C5 files &amp; assets</tspan> — storage.ts / filestream.ts · bytes in Postgres today → S3-compatible at fleet scale</text>
+  </g>
+
+  <!-- arrow F1 -> F2 -->
+  <line x1="880" y1="400" x2="880" y2="432" stroke="#8f1f2b" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="894" y="422" font-size="11" fill="#6b6560" font-style="italic">routes by Host header</text>
+
+  <!-- ============ F2 MODULE APPS ============ -->
+  <text x="40" y="428" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">3 · MODULE APPS — apps/* · one Next.js app per module (Turborepo)</text>
+  <rect x="40" y="436" width="1560" height="356" rx="10" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+
+  <!-- platform apps -->
+  <g font-size="12.5">
+    <rect x="60" y="456" width="330" height="40" rx="7" fill="#3d3733"/>
+    <text x="225" y="477" text-anchor="middle" fill="#ffffff" font-weight="bold">web <tspan font-weight="normal" fill="#cfc8bc">— public site (SitePage/SiteBlock)</tspan></text>
+    <rect x="406" y="456" width="330" height="40" rx="7" fill="#3d3733"/>
+    <text x="571" y="477" text-anchor="middle" fill="#ffffff" font-weight="bold">admin <tspan font-weight="normal" fill="#cfc8bc">— tenant · branding · settings</tspan></text>
+    <rect x="752" y="456" width="330" height="40" rx="7" fill="#3d3733"/>
+    <text x="917" y="477" text-anchor="middle" fill="#ffffff" font-weight="bold">users <tspan font-weight="normal" fill="#cfc8bc">— auth · roles · user mgmt</tspan></text>
+  </g>
+
+  <!-- 16 module chips, 4x4 -->
+  <g font-size="13" fill="#1c1917">
+    <rect x="60" y="514" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="180" y="542" text-anchor="middle" font-weight="bold">leads</text>
+    <rect x="314" y="514" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="434" y="542" text-anchor="middle" font-weight="bold">crm</text>
+    <rect x="568" y="514" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/><text x="688" y="535" text-anchor="middle" font-weight="bold">quotations</text><text x="688" y="551" text-anchor="middle" font-size="9.5" fill="#6b6560">hardened externally → folding back</text>
+    <rect x="822" y="514" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="942" y="542" text-anchor="middle" font-weight="bold">orders</text>
+
+    <rect x="60" y="574" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="180" y="602" text-anchor="middle" font-weight="bold">challans</text>
+    <rect x="314" y="574" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="434" y="602" text-anchor="middle" font-weight="bold">invoices</text>
+    <rect x="568" y="574" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="688" y="602" text-anchor="middle" font-weight="bold">payments</text>
+    <rect x="822" y="574" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="942" y="602" text-anchor="middle" font-weight="bold">catalog</text>
+
+    <rect x="60" y="634" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/><text x="180" y="655" text-anchor="middle" font-weight="bold">photoshoot</text><text x="180" y="671" text-anchor="middle" font-size="9.5" fill="#6b6560">in hardening workshop (frame 6)</text>
+    <rect x="314" y="634" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="434" y="662" text-anchor="middle" font-weight="bold">inventory</text>
+    <rect x="568" y="634" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="688" y="662" text-anchor="middle" font-weight="bold">purchase-orders</text>
+    <rect x="822" y="634" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="942" y="662" text-anchor="middle" font-weight="bold">finance</text>
+
+    <rect x="60" y="694" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="180" y="722" text-anchor="middle" font-weight="bold">expenses</text>
+    <rect x="314" y="694" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="434" y="722" text-anchor="middle" font-weight="bold">hr</text>
+    <rect x="568" y="694" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="688" y="722" text-anchor="middle" font-weight="bold">tasks</text>
+    <rect x="822" y="694" width="240" height="46" rx="7" fill="#f7f1e6" stroke="#c9a96a"/><text x="942" y="722" text-anchor="middle" font-weight="bold">docs</text>
+  </g>
+  <text x="60" y="770" font-size="11.5" fill="#6b6560" font-style="italic">Each chip = its own container on its own subdomain. ANY module can be promoted to customer-grade — promotion = harden + flag on, never a rewrite.</text>
+
+  <!-- anatomy card -->
+  <rect x="1100" y="456" width="480" height="300" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="1118" y="480" font-size="12.5" font-weight="bold" fill="#6f1620">ANATOMY OF EVERY MODULE APP</text>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="1118" y="508">app/           UI routes (App Router) in SuiteShell</text>
+    <text x="1118" y="530">app/api/*      REST handlers — the module's contract</text>
+    <text x="1118" y="552">lib/           domain logic — pure, unit-testable</text>
+    <text x="1118" y="580">imports  @maple/core  (auth·rbac·tenantDb·ui·pdf)</text>
+    <text x="1118" y="602">imports  @maple/db    (Prisma client + schema)</text>
+    <text x="1118" y="630">reads flags.ts → off = ToolDisabled screen</text>
+    <text x="1118" y="652">same Docker image · own container · port 3000</text>
+    <text x="1118" y="680" fill="#6b6560">no module imports another module's code —</text>
+    <text x="1118" y="698" fill="#6b6560">they meet only via C1–C5 channels (frame 2)</text>
+    <text x="1118" y="726" fill="#6b6560">→ that boundary is what makes standalone possible</text>
+  </g>
+
+  <!-- arrows F2 -> F3, F2 -> F4 -->
+  <line x1="1600" y1="606" x2="1638" y2="606" stroke="#8f1f2b" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="1619" y="594" text-anchor="middle" font-size="11" fill="#6b6560" font-style="italic">imports</text>
+  <line x1="820" y1="792" x2="820" y2="824" stroke="#8f1f2b" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="834" y="814" font-size="11" fill="#6b6560" font-style="italic">tenantDb() reads / writes</text>
+
+  <!-- ============ F3 SHARED PACKAGES ============ -->
+  <text x="1640" y="428" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">4 · SHARED PACKAGES — packages/*</text>
+  <rect x="1640" y="436" width="800" height="356" rx="10" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+
+  <rect x="1660" y="456" width="760" height="196" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="1678" y="480" font-size="12.5" font-weight="bold" fill="#6f1620">@maple/core <tspan font-weight="normal" fill="#6b6560">— exports ./lib/* · ./ui/* · ./components/* · theme.css</tspan></text>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="1678" y="508">identity   auth.ts session.ts sso.ts (jose) · rbac.ts permissions.ts</text>
+    <text x="1678" y="530">tenancy    tenant.ts tenant-db.ts (auto-filter+stamp) · brand.ts · flags.ts</text>
+    <text x="1678" y="552">files      storage.ts filestream.ts</text>
+    <text x="1678" y="574">documents  pdf-render.ts invoice.ts poster.ts watermark.ts</text>
+    <text x="1678" y="596">ui         SuiteShell · PageHeader · ToolDisabled · ui/* kit · theme.css</text>
+    <text x="1678" y="624" fill="#6b6560">domain helpers: hr.ts clientLink.ts nav.ts slug.ts utils.ts (tested)</text>
+  </g>
+
+  <rect x="1660" y="668" width="760" height="104" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="1678" y="692" font-size="12.5" font-weight="bold" fill="#6f1620">@maple/db</text>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="1678" y="718">prisma/schema.prisma — 22 models, one source of truth · Prisma 6 singleton</text>
+    <text x="1678" y="740" fill="#6b6560">standalone repos vendor both packages via tsconfig paths</text>
+    <text x="1678" y="758" fill="#6b6560">("@maple/core/*" → src/) — no npm registry needed</text>
+  </g>
+
+  <!-- arrow F3 -> F4 -->
+  <line x1="1700" y1="792" x2="1590" y2="826" stroke="#8f1f2b" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="1580" y="806" text-anchor="end" font-size="11" fill="#6b6560" font-style="italic">Prisma client → SQL</text>
+
+  <!-- ============ F4 DATA LAYER ============ -->
+  <text x="40" y="822" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">5 · DATA LAYER — one Postgres per deployment, tenant-scoped everywhere</text>
+  <rect x="40" y="830" width="1560" height="400" rx="10" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+
+  <!-- postgres cylinder -->
+  <g>
+    <path d="M 70 872 L 70 952 A 110 16 0 0 0 290 952 L 290 872" fill="#f0e7d8" stroke="#8f1f2b" stroke-width="1.5"/>
+    <ellipse cx="180" cy="872" rx="110" ry="16" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+    <text x="180" y="906" text-anchor="middle" font-family="Menlo, monospace" font-size="12" font-weight="bold" fill="#6f1620">postgres:16</text>
+    <text x="180" y="926" text-anchor="middle" font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">docker volume · daily dump</text>
+    <text x="180" y="944" text-anchor="middle" font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">migrate job: prisma migrate</text>
+  </g>
+
+  <rect x="330" y="860" width="590" height="120" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="348" y="884" font-size="12" font-weight="bold" fill="#6f1620">CORE / SHARED TABLES <tspan font-weight="normal" fill="#6b6560">— every module reads these</tspan></text>
+  <g font-family="Menlo, monospace" font-size="11.5" fill="#1c1917">
+    <text x="348" y="912">Tenant(branding+domain) · User · Role · Client</text>
+    <text x="348" y="934">Product · Collection · Doc · Task</text>
+    <text x="348" y="956">SitePage · SiteBlock</text>
+  </g>
+
+  <rect x="950" y="860" width="630" height="120" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="968" y="884" font-size="12" font-weight="bold" fill="#6f1620">MODULE-OWNED TABLES <tspan font-weight="normal" fill="#6b6560">— written by exactly one module</tspan></text>
+  <g font-family="Menlo, monospace" font-size="11.5" fill="#1c1917">
+    <text x="968" y="912">Lead · Quotation · Order · Invoice · Payment · DeliveryChallan</text>
+    <text x="968" y="934">PurchaseOrder · InventoryItem · FinanceEntry · Expense</text>
+    <text x="968" y="956">HrDocument · Shoot</text>
+  </g>
+
+  <!-- FK money chain -->
+  <text x="70" y="1022" font-size="12" font-weight="bold" fill="#6f1620">THE MONEY CHAIN (cross-module foreign keys — channel C1)</text>
+  <g font-size="12.5" fill="#1c1917">
+    <rect x="100" y="1038" width="170" height="40" rx="7" fill="#ffffff" stroke="#8f1f2b"/><text x="185" y="1063" text-anchor="middle" font-weight="bold">Lead</text>
+    <rect x="380" y="1038" width="170" height="40" rx="7" fill="#ffffff" stroke="#8f1f2b"/><text x="465" y="1063" text-anchor="middle" font-weight="bold">Quotation</text>
+    <rect x="660" y="1038" width="170" height="40" rx="7" fill="#ffffff" stroke="#8f1f2b"/><text x="745" y="1063" text-anchor="middle" font-weight="bold">Order</text>
+    <rect x="940" y="1038" width="170" height="40" rx="7" fill="#ffffff" stroke="#8f1f2b"/><text x="1025" y="1063" text-anchor="middle" font-weight="bold">Invoice</text>
+    <rect x="1220" y="1038" width="170" height="40" rx="7" fill="#ffffff" stroke="#8f1f2b"/><text x="1305" y="1063" text-anchor="middle" font-weight="bold">Payment</text>
+  </g>
+  <g stroke="#8f1f2b" stroke-width="1.8">
+    <line x1="270" y1="1058" x2="376" y2="1058" marker-end="url(#arr)"/>
+    <line x1="550" y1="1058" x2="656" y2="1058" marker-end="url(#arr)"/>
+    <line x1="830" y1="1058" x2="936" y2="1058" marker-end="url(#arr)"/>
+    <line x1="1110" y1="1058" x2="1216" y2="1058" marker-end="url(#arr)"/>
+  </g>
+  <g font-size="10.5" fill="#6b6560" font-style="italic" text-anchor="middle">
+    <text x="323" y="1050">convert</text>
+    <text x="603" y="1050">won</text>
+    <text x="883" y="1050">bill</text>
+    <text x="1163" y="1050">settle</text>
+  </g>
+  <rect x="640" y="1118" width="210" height="40" rx="7" fill="#3d3733"/>
+  <text x="745" y="1143" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">Client — one record</text>
+  <g stroke="#6b6560" stroke-width="1.1">
+    <line x1="185" y1="1078" x2="650" y2="1118" marker-end="url(#arrg)"/>
+    <line x1="465" y1="1078" x2="700" y2="1118" marker-end="url(#arrg)"/>
+    <line x1="745" y1="1078" x2="745" y2="1118" marker-end="url(#arrg)"/>
+    <line x1="1025" y1="1078" x2="790" y2="1118" marker-end="url(#arrg)"/>
+    <line x1="1305" y1="1078" x2="840" y2="1118" marker-end="url(#arrg)"/>
+  </g>
+
+  <rect x="1420" y="1038" width="160" height="120" rx="8" fill="#fdf3e3" stroke="#c9a96a"/>
+  <text x="1500" y="1062" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#6f1620">OutboxEvent</text>
+  <g font-size="10" fill="#1c1917" text-anchor="middle">
+    <text x="1500" y="1082">same-TX event ledger</text>
+    <text x="1500" y="1098">model in maple-quotations</text>
+    <text x="1500" y="1114" fill="#a3541a">no writer or consumer yet</text>
+    <text x="1500" y="1130" fill="#a3541a">→ build on fold-in</text>
+  </g>
+
+  <text x="70" y="1200" font-family="Menlo, monospace" font-size="11.5" fill="#6b6560">tenancy: every business row carries tenantId — tenantDb() Prisma extension auto-filters reads + stamps writes (incl. upsert) · one DB serves many tenants, or one tenant per instance</text>
+
+  <!-- ============ F6 STANDALONE MODE ============ -->
+  <text x="1640" y="822" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">6 · STANDALONE MODE — run any module alone (proven pattern)</text>
+  <rect x="1640" y="830" width="800" height="400" rx="10" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="1660" y="862">① vendor @maple/core + db via tsconfig paths — no npm publish</text>
+    <text x="1660" y="884">② own schema: core subset (Tenant·User·Client) + module models</text>
+    <text x="1660" y="906">   + Asset · AppSetting · Counter · OutboxEvent</text>
+    <text x="1660" y="928">③ own Postgres · own jose-JWT login · own domain</text>
+    <text x="1660" y="950">④ contract back to suite: C3 events + C4 REST · same JWT claims</text>
+  </g>
+
+  <rect x="1660" y="972" width="380" height="238" rx="8" fill="#f2f7ee" stroke="#5a7d4a"/>
+  <text x="1678" y="996" font-size="12" font-weight="bold" fill="#3d5c30">maple-quotations ✓ hardened</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="1678" y="1020">9-model schema · 23 unit tests · audited</text>
+    <text x="1678" y="1040">+ AI catalog parse (Anthropic, 2-PDF mode)</text>
+    <text x="1678" y="1060">+ product library (MF-P codes) + gallery</text>
+    <text x="1678" y="1080">+ per-tenant encrypted settings</text>
+    <text x="1678" y="1100">  (AES-256-GCM keyed off AUTH_SECRET)</text>
+    <text x="1678" y="1120">+ branded proposal PDF (@react-pdf)</text>
+    <text x="1678" y="1140">+ regression plan (R1–R9) · docs site</text>
+    <text x="1678" y="1168" fill="#3d5c30" font-weight="bold">→ folds back behind its module flag;</text>
+    <text x="1678" y="1186" fill="#3d5c30" font-weight="bold">  repo stays as the standalone template</text>
+  </g>
+
+  <rect x="2056" y="972" width="364" height="238" rx="8" fill="#fdf3e3" stroke="#c07b2d"/>
+  <text x="2074" y="996" font-size="12" font-weight="bold" fill="#8a5410">maple-photoshoot ⚠ in workshop</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="2074" y="1020">shoots · public /s/[token] galleries</text>
+    <text x="2074" y="1040">video · generation wizard (Lens DNA)</text>
+    <text x="2074" y="1068" fill="#a3541a">⚠ schema untrimmed — all 22 models</text>
+    <text x="2074" y="1088" fill="#a3541a">⚠ mixed @supabase/ssr + jose auth</text>
+    <text x="2074" y="1116">needs the one-stack ruling, then:</text>
+    <text x="2074" y="1136">trim schema → docs → regression →</text>
+    <text x="2074" y="1156">fold back behind its flag</text>
+    <text x="2074" y="1186" fill="#8a5410" font-weight="bold">owner: Vishesh</text>
+  </g>
+
+  <!-- ============ F7 AI & DOCUMENTS ============ -->
+  <text x="40" y="1262" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">7 · AI &amp; DOCUMENT SERVICES — shared plumbing, module-agnostic</text>
+  <rect x="40" y="1270" width="1180" height="230" rx="10" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+
+  <rect x="60" y="1290" width="560" height="190" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="78" y="1314" font-size="12" font-weight="bold" fill="#6f1620">AI LAYER</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="78" y="1338">Anthropic SDK — claude-fable-5 default,</text>
+    <text x="78" y="1356">server-side fallback → opus-4-8 · streaming</text>
+    <text x="78" y="1378">structured outputs (json_schema) · native PDF blocks</text>
+    <text x="78" y="1400">pdf-to-img + sharp: page render → crop → thumbnails</text>
+    <text x="78" y="1422">keys+model per tenant: AppSetting → env → default</text>
+    <text x="78" y="1444" fill="#6b6560">consumers: quotations catalog-parse · photoshoot</text>
+    <text x="78" y="1462" fill="#6b6560">wizard · MapleLens engine (same approach)</text>
+  </g>
+
+  <rect x="640" y="1290" width="560" height="190" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="658" y="1314" font-size="12" font-weight="bold" fill="#6f1620">DOCUMENTS &amp; EXPORTS</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="658" y="1338">@react-pdf/renderer (client + Node) — proposals</text>
+    <text x="658" y="1356">core pdf-render.ts · invoice.ts · poster.ts ·</text>
+    <text x="658" y="1374">watermark.ts — invoices, challans, posters</text>
+    <text x="658" y="1396">sheet-export — team Google-Sheet rate format</text>
+    <text x="658" y="1418">all branded from the Tenant row (logo·banner·GSTIN)</text>
+    <text x="658" y="1444" fill="#6b6560">open item: bundle a font for the ₹ glyph</text>
+    <text x="658" y="1462" fill="#6b6560">(built-ins can't encode it — "Rs" fallback today)</text>
+  </g>
+
+  <!-- ============ F8 DEPLOY ============ -->
+  <text x="1260" y="1262" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">8 · DEPLOY TOPOLOGIES &amp; CI/CD</text>
+  <rect x="1260" y="1270" width="1180" height="230" rx="10" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+
+  <rect x="1280" y="1290" width="368" height="150" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="1298" y="1314" font-size="12" font-weight="bold" fill="#6f1620">MODE A — one box (now)</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="1298" y="1340">docker compose: caddy + postgres:16</text>
+    <text x="1298" y="1360">+ migrate + flipt + 19 app containers</text>
+    <text x="1298" y="1380">all from ONE image maple-suite:latest</text>
+    <text x="1298" y="1404" fill="#6b6560">restart = pull image, compose up</text>
+    <text x="1298" y="1424" fill="#6b6560">backup: pg_dump + volume snapshot</text>
+  </g>
+
+  <rect x="1668" y="1290" width="368" height="150" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="1686" y="1314" font-size="12" font-weight="bold" fill="#6f1620">MODE B — instance / customer</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="1686" y="1340">same compose · their domain + env</text>
+    <text x="1686" y="1360">only the plan's containers enabled</text>
+    <text x="1686" y="1380">their own postgres volume</text>
+    <text x="1686" y="1404" fill="#6b6560">highest isolation · easy pricing</text>
+    <text x="1686" y="1424" fill="#6b6560">fine to a few dozen customers</text>
+  </g>
+
+  <rect x="2056" y="1290" width="364" height="150" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="2074" y="1314" font-size="12" font-weight="bold" fill="#6f1620">MODE C — multi-tenant (later)</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="2074" y="1340">one deployment · tenant by Host</text>
+    <text x="2074" y="1360">getBrand() + tenantDb() already</text>
+    <text x="2074" y="1380">built — a switch, not a rewrite</text>
+    <text x="2074" y="1404" fill="#6b6560">adopt when instance-ops hurts</text>
+    <text x="2074" y="1424" fill="#6b6560">needs S3 assets + pooling first</text>
+  </g>
+  <text x="1280" y="1478" font-family="Menlo, monospace" font-size="11" fill="#6b6560">CI/CD: GitHub Actions → docker build → registry → compose pull/up · gates: Vitest (unit) + Playwright (e2e)</text>
+
+  <!-- ============ F9 BOTTOM STRIPS ============ -->
+  <text x="40" y="1532" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">9 · SATELLITE — MAPLELENS</text>
+  <rect x="40" y="1540" width="1180" height="90" rx="10" fill="#ffffff" stroke="#8f1f2b" stroke-width="1.5" stroke-dasharray="7,5"/>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="60" y="1570">separate Next.js app (repo: MapleLens) · Supabase · consumer funnel — NOT a suite module, shares the AI approach, not code</text>
+    <text x="60" y="1594">future: MapleID bridge — Lens signups land in the suite as Leads (via C3 event or C4 REST)</text>
+    <text x="60" y="1616" fill="#6b6560">photoshoot's generation wizard already carries the Lens template/slot engine inside the suite</text>
+  </g>
+
+  <text x="1260" y="1532" font-size="12.5" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">10 · OPEN ENGINEERING DECISIONS</text>
+  <rect x="1260" y="1540" width="1180" height="90" rx="10" fill="#fdf3e3" stroke="#c07b2d" stroke-width="1.5"/>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="1280" y="1570">① one stack ruling: core jose-JWT + Postgres  vs  Supabase (blocks photoshoot fold-in)</text>
+    <text x="1280" y="1594">② asset bytes: Postgres → S3-compatible object storage   ③ OutboxEvent dispatcher: poller vs webhooks</text>
+    <text x="1280" y="1616">④ MapleID token shared across suite + MapleLens          ⑤ bundle ₹-capable font for PDFs</text>
+  </g>
+
+  <!-- footer -->
+  <text x="40" y="1662" font-size="11.5" fill="#6b6560" font-style="italic">Every box maps to code that exists today — repos: maple-suite (apps/* + packages/*), maple-quotations, Maple-Photoshoot, MapleLens. Read top-down: edge → apps → packages → data; frames 2 and 6 are the contract that keeps modules independent.</text>
+</svg>

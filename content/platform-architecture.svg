@@ -1,0 +1,226 @@
+<svg width="2480" height="1500" viewBox="0 0 2480 1500" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8f1f2b"/>
+    </marker>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e6e1d5"/>
+    </pattern>
+  </defs>
+
+  <rect width="2480" height="1500" fill="#fbfaf7"/>
+  <rect width="2480" height="1500" fill="url(#dots)"/>
+
+  <!-- title -->
+  <rect x="0" y="0" width="2480" height="74" fill="#8f1f2b"/>
+  <text x="40" y="34" font-family="Georgia, serif" font-size="25" font-weight="bold" fill="#ffffff">MapleOne — Platform Architecture</text>
+  <text x="40" y="58" font-family="Georgia, serif" font-style="italic" font-size="13.5" fill="#f3e3c3">One design system · one identity · shared rails (flags, AI, events) — modules are thin apps on a thick platform</text>
+  <text x="2440" y="30" text-anchor="end" font-size="12" fill="#f3e3c3">Maple Studios · July 2026 · v1</text>
+  <text x="2440" y="50" text-anchor="end" font-size="11" fill="#f3e3c3">companion: docs/architecture/platform-architecture.md</text>
+
+  <!-- ============ F1 FIRST STEPS ============ -->
+  <text x="40" y="106" font-size="13" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">1 · FIRST STEPS OF DEPLOYMENT — platform before modules, in this order</text>
+  <rect x="40" y="116" width="2400" height="160" rx="12" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+  <g font-size="10.5" fill="#1c1917">
+    <rect x="60" y="136" width="374" height="120" rx="8" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+    <text x="76" y="160" font-size="11.5" font-weight="bold" fill="#6f1620">① PUBLISH THE UI + CORE LIBRARIES</text>
+    <text x="76" y="182">@maple/ui + @maple/core → versioned packages</text>
+    <text x="76" y="200">on a private npm (GitHub Packages). Modules</text>
+    <text x="76" y="218">pin versions — the vendored-copy drift that</text>
+    <text x="76" y="236">the fold-in audit found dies here.</text>
+
+    <rect x="454" y="136" width="374" height="120" rx="8" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+    <text x="470" y="160" font-size="11.5" font-weight="bold" fill="#6f1620">② HARDEN IDENTITY (MapleID)</text>
+    <text x="470" y="182">Fix the known RBAC gaps (roles-API escalation)</text>
+    <text x="470" y="200">BEFORE anything is public. One login home</text>
+    <text x="470" y="218">(admin app today), same mt_session JWT</text>
+    <text x="470" y="236">verified locally by every app — no auth calls.</text>
+
+    <rect x="848" y="136" width="374" height="120" rx="8" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+    <text x="864" y="160" font-size="11.5" font-weight="bold" fill="#6f1620">③ PLATFORM RAILS UP</text>
+    <text x="864" y="182">Flipt container = the flag switcher (console</text>
+    <text x="864" y="200">exists at flags.*, basic-auth). maple-ai</text>
+    <text x="864" y="218">gateway v1 (keys · routing · spend log —</text>
+    <text x="864" y="236">mostly existing quotations code).</text>
+
+    <rect x="1242" y="136" width="374" height="120" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+    <text x="1258" y="160" font-size="11.5" font-weight="bold" fill="#6f1620">④ MANAGED DEPENDENCIES</text>
+    <text x="1258" y="182">RDS (one DB per module) → S3 + CloudFront →</text>
+    <text x="1258" y="200">Secrets Manager → ECR. The AWS plan's</text>
+    <text x="1258" y="218">Phase 2 — nothing precious on the box</text>
+    <text x="1258" y="236">afterwards. Restore drill before go-live.</text>
+
+    <rect x="1636" y="136" width="374" height="120" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+    <text x="1652" y="160" font-size="11.5" font-weight="bold" fill="#6f1620">⑤ MODULES ON THE CONTRACT</text>
+    <text x="1652" y="182">Each module: image → ECR → deploy (compose</text>
+    <text x="1652" y="200">now, Fargate later). Same motion for suite</text>
+    <text x="1652" y="218">apps, quotations, photoshoot, and every</text>
+    <text x="1652" y="236">module built after.</text>
+
+    <rect x="2030" y="136" width="390" height="120" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+    <text x="2046" y="160" font-size="11.5" font-weight="bold" fill="#6f1620">⑥ WIRE THE BUSINESS LAYER</text>
+    <text x="2046" y="182">Plan/entitlements → Flipt flags sync (sell a</text>
+    <text x="2046" y="200">module = flip a flag) · uptime alarms on</text>
+    <text x="2046" y="218">client domains · onboard Maple Enterprise</text>
+    <text x="2046" y="236">with their Tenant row + branding.</text>
+  </g>
+
+  <!-- ============ F2 EDGE ============ -->
+  <text x="40" y="316" font-size="13" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">2 · THE WHOLE PROJECT — one picture</text>
+  <rect x="40" y="326" width="2400" height="946" rx="12" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+
+  <rect x="64" y="346" width="2352" height="54" rx="8" fill="#8f1f2b"/>
+  <text x="84" y="374" font-size="12.5" font-weight="bold" fill="#ffffff">EDGE — Caddy (today) / ALB (Phase 3): TLS + route each subdomain to its container · unknown-but-signed-out → MapleID login with ?next=</text>
+  <text x="84" y="391" font-size="10.5" fill="#f3e3c3">one.mapleenterprise.com · quotations.* · photoshoot.* · flags.* · docs.* — Host header also picks the Tenant (branding, data scope)</text>
+
+  <!-- column headers -->
+  <text x="64" y="440" font-size="12" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">BUILD-TIME PLATFORM — versioned packages</text>
+  <text x="680" y="440" font-size="12" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">MODULES — thin apps, one contract</text>
+  <text x="1720" y="440" font-size="12" font-weight="bold" fill="#8f1f2b" letter-spacing="1.5">RUNTIME PLATFORM SERVICES</text>
+
+  <!-- C1 packages -->
+  <rect x="64" y="456" width="560" height="200" rx="8" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+  <text x="82" y="482" font-size="12.5" font-weight="bold" fill="#6f1620">@maple/ui — THE design system</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="82" y="506">theme.css tokens (maple palette, type scale)</text>
+    <text x="82" y="524">ui/* kit: button card input dialog table ...</text>
+    <text x="82" y="542">SuiteShell · PageHeader · ToolDisabled · login form</text>
+    <text x="82" y="560">one place to change how everything looks</text>
+  </g>
+  <text x="82" y="590" font-size="10.5" fill="#6b6560" font-style="italic">consumed by every module + white-label themes via</text>
+  <text x="82" y="606" font-size="10.5" fill="#6b6560" font-style="italic">Tenant branding (logo/colors flow into shell + PDFs)</text>
+  <text x="82" y="638" font-size="10.5" fill="#8a5410" font-weight="bold">today: lives in @maple/core + vendored copies → step ①</text>
+
+  <rect x="64" y="672" width="560" height="180" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="82" y="698" font-size="12.5" font-weight="bold" fill="#6f1620">@maple/core — shared logic</text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="82" y="722">auth: session/jwt (jose) · sso · rbac/permissions</text>
+    <text x="82" y="740">tenancy: tenantDb (auto-scope) · brand · flags client</text>
+    <text x="82" y="758">files: storage (local → S3 driver) · pdf renderers</text>
+  </g>
+  <text x="82" y="788" font-size="10.5" fill="#6b6560" font-style="italic">libraries, not services — auth verifies JWTs locally,</text>
+  <text x="82" y="804" font-size="10.5" fill="#6b6560" font-style="italic">tenantDb scopes every query; zero runtime hops</text>
+  <text x="82" y="834" font-size="10.5" fill="#1c1917">@maple/db — Prisma schema + client, per-module schemas</text>
+
+  <rect x="64" y="868" width="560" height="120" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="82" y="894" font-size="12" font-weight="bold" fill="#6f1620">Publishing flow (step ①)</text>
+  <g font-size="10.5" fill="#1c1917">
+    <text x="82" y="918">tag v1.4.0 → Actions builds + publishes to private npm</text>
+    <text x="82" y="936">(GitHub Packages) → modules pin ^1.4 and update by PR</text>
+    <text x="82" y="962" fill="#6b6560" font-style="italic">a UI fix ships everywhere by version bump, not copy-paste</text>
+  </g>
+
+  <!-- build-time arrow -->
+  <line x1="624" y1="700" x2="676" y2="700" stroke="#8f1f2b" stroke-width="1.8" stroke-dasharray="7,5" marker-end="url(#arr)"/>
+  <text x="628" y="686" font-size="10" fill="#6b6560" font-style="italic">npm install</text>
+  <text x="628" y="720" font-size="10" fill="#6b6560" font-style="italic">(build-time)</text>
+
+  <!-- C2 modules -->
+  <rect x="680" y="456" width="1000" height="532" rx="8" fill="#ffffff" stroke="#c9a96a" stroke-width="1.5"/>
+  <text x="700" y="482" font-size="12.5" font-weight="bold" fill="#1c1917">MapleOne suite <tspan font-weight="normal" fill="#6b6560">— one container per module, flags decide what a tenant sees</tspan></text>
+  <g font-size="11.5" fill="#1c1917">
+    <rect x="700" y="498" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="776" y="522" text-anchor="middle">leads</text>
+    <rect x="862" y="498" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="938" y="522" text-anchor="middle">crm</text>
+    <rect x="1024" y="498" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="1100" y="522" text-anchor="middle">orders</text>
+    <rect x="1186" y="498" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="1262" y="522" text-anchor="middle">invoices</text>
+    <rect x="1348" y="498" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="1424" y="522" text-anchor="middle">payments</text>
+    <rect x="1510" y="498" width="150" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="1585" y="522" text-anchor="middle">challans</text>
+    <rect x="700" y="546" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="776" y="570" text-anchor="middle">catalog</text>
+    <rect x="862" y="546" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="938" y="570" text-anchor="middle">inventory</text>
+    <rect x="1024" y="546" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="1100" y="570" text-anchor="middle">purchase-orders</text>
+    <rect x="1186" y="546" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="1262" y="570" text-anchor="middle">finance</text>
+    <rect x="1348" y="546" width="152" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="1424" y="570" text-anchor="middle">expenses</text>
+    <rect x="1510" y="546" width="150" height="38" rx="6" fill="#f7f1e6" stroke="#c9a96a"/><text x="1585" y="570" text-anchor="middle">hr · tasks · docs</text>
+  </g>
+
+  <rect x="700" y="612" width="470" height="130" rx="8" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+  <text x="718" y="638" font-size="12.5" font-weight="bold" fill="#6f1620">quotations</text>
+  <text x="718" y="658" font-size="10.5" fill="#1c1917">AI catalog parse · product library · branded proposals</text>
+  <text x="718" y="676" font-size="10.5" fill="#1c1917">own DB · own login standalone · SSO when sold in suite</text>
+  <text x="718" y="700" font-size="10.5" fill="#6b6560" font-style="italic">hardened externally — same code serves both shapes</text>
+  <text x="718" y="726" font-size="10.5" fill="#3d5c30" font-weight="bold">running locally today ✓</text>
+
+  <rect x="1190" y="612" width="470" height="130" rx="8" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+  <text x="1208" y="638" font-size="12.5" font-weight="bold" fill="#6f1620">photoshoot</text>
+  <text x="1208" y="658" font-size="10.5" fill="#1c1917">shoots · public /s/token galleries · generation wizard</text>
+  <text x="1208" y="676" font-size="10.5" fill="#1c1917">own DB · own login standalone (fixed this week)</text>
+  <text x="1208" y="700" font-size="10.5" fill="#6b6560" font-style="italic">in hardening — schema trim + one-stack ruling pending</text>
+  <text x="1208" y="726" font-size="10.5" fill="#3d5c30" font-weight="bold">running locally today ✓</text>
+
+  <rect x="700" y="762" width="960" height="106" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="718" y="788" font-size="12" font-weight="bold" fill="#6f1620">THE MODULE CONTRACT <tspan font-weight="normal" fill="#6b6560">— what makes module #7 deploy like module #2</tspan></text>
+  <g font-family="Menlo, monospace" font-size="10.5" fill="#1c1917">
+    <text x="718" y="812">versioned image · own DB + migrations · env-only config · /api/health · public/private routes declared</text>
+    <text x="718" y="830">files via storage lib (S3) · events not imports · AI only via gateway · pinned @maple/ui + core versions</text>
+  </g>
+  <text x="718" y="854" font-size="10.5" fill="#6b6560" font-style="italic">future modules (installer app? site builder? client portal?) inherit all of this for free</text>
+
+  <text x="700" y="920" font-size="11.5" fill="#6b6560" font-style="italic">Modules never import each other. They meet through: the shared core DB records (Client, Product),</text>
+  <text x="700" y="940" font-size="11.5" fill="#6b6560" font-style="italic">OutboxEvents (quote won → order), REST APIs, and one session cookie — that boundary is the whole architecture.</text>
+
+  <!-- runtime arrow -->
+  <line x1="1680" y1="700" x2="1716" y2="700" stroke="#8f1f2b" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="1684" y="686" font-size="10" fill="#6b6560" font-style="italic">runtime</text>
+  <text x="1684" y="720" font-size="10" fill="#6b6560" font-style="italic">(HTTP/JWT)</text>
+
+  <!-- C3 runtime services -->
+  <rect x="1720" y="456" width="696" height="120" rx="8" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+  <text x="1738" y="482" font-size="12.5" font-weight="bold" fill="#6f1620">MapleID — identity</text>
+  <g font-size="10.5" fill="#1c1917">
+    <text x="1738" y="506">login UI + users/roles admin (admin app today, thin service later)</text>
+    <text x="1738" y="524">issues the mt_session JWT · every app verifies locally (stateless)</text>
+    <text x="1738" y="542">standalone modules: same code, local login, own secret</text>
+  </g>
+  <text x="1738" y="564" font-size="10.5" fill="#8a5410" font-weight="bold">step ② fixes the roles-API escalation before anything is public</text>
+
+  <rect x="1720" y="592" width="696" height="110" rx="8" fill="#f7f1e6" stroke="#8f1f2b" stroke-width="1.5"/>
+  <text x="1738" y="618" font-size="12.5" font-weight="bold" fill="#6f1620">Flipt — the flag switcher</text>
+  <g font-size="10.5" fill="#1c1917">
+    <text x="1738" y="642">per-tenant/per-plan flags: tool.quotations, tool.photoshoot, ...</text>
+    <text x="1738" y="660">console at flags.* (basic-auth) — sell a module = flip a flag</text>
+  </g>
+  <text x="1738" y="684" font-size="10.5" fill="#6b6560" font-style="italic">fail-open by design; entitlements→flags sync is step ⑥</text>
+
+  <rect x="1720" y="718" width="696" height="110" rx="8" fill="#fdf3e3" stroke="#c07b2d" stroke-width="1.5"/>
+  <text x="1738" y="744" font-size="12.5" font-weight="bold" fill="#8a5410">maple-ai gateway</text>
+  <g font-size="10.5" fill="#1c1917">
+    <text x="1738" y="768">the only door to AI: keys · model routing · ₹ log per tenant/module</text>
+    <text x="1738" y="786">Claude/OpenAI today → Bedrock → own fine-tuned models (AI track)</text>
+  </g>
+  <text x="1738" y="810" font-size="10.5" fill="#6b6560" font-style="italic">modules never hold keys — swapping models is config, not code</text>
+
+  <rect x="1720" y="844" width="340" height="100" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="1738" y="870" font-size="12" font-weight="bold" fill="#6f1620">Event dispatcher</text>
+  <text x="1738" y="892" font-size="10.5" fill="#1c1917">polls OutboxEvent → notifies consumers</text>
+  <text x="1738" y="910" font-size="10.5" fill="#8a5410">planned — model exists, no writer yet</text>
+  <text x="1738" y="928" font-size="10.5" fill="#6b6560" font-style="italic">quote won → order, Lens signup → lead</text>
+
+  <rect x="2076" y="844" width="340" height="100" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="2094" y="870" font-size="12" font-weight="bold" fill="#6f1620">Docs site</text>
+  <text x="2094" y="892" font-size="10.5" fill="#1c1917">this architecture set, generated from md</text>
+  <text x="2094" y="910" font-size="10.5" fill="#1c1917">running locally on :8130 today</text>
+  <text x="2094" y="928" font-size="10.5" fill="#6b6560" font-style="italic">user docs live in the docs module app</text>
+
+  <!-- data strip -->
+  <rect x="64" y="1008" width="2352" height="112" rx="8" fill="#f0e7d8" stroke="#8f1f2b" stroke-width="1.5"/>
+  <text x="84" y="1036" font-size="12.5" font-weight="bold" fill="#6f1620">DATA — precious, managed</text>
+  <g font-size="11" fill="#1c1917">
+    <text x="84" y="1062">Postgres (RDS): one database per module — mapletools · maple_quotations · maple_photoshoot · maple_ai — every row tenant-scoped by tenantDb()</text>
+    <text x="84" y="1084">S3 + CloudFront: product images · lookbooks · shoot videos · backups &#160;&#160;·&#160;&#160; Secrets Manager: DB password · AUTH_SECRETs · AI keys &#160;&#160;·&#160;&#160; ECR: versioned images</text>
+  </g>
+  <text x="84" y="1106" font-size="10.5" fill="#6b6560" font-style="italic">apps are disposable; this strip is not — that split is the entire ops strategy</text>
+
+  <!-- cicd strip -->
+  <rect x="64" y="1136" width="2352" height="116" rx="8" fill="#faf6ee" stroke="#e7e0d6"/>
+  <text x="84" y="1164" font-size="12.5" font-weight="bold" fill="#6f1620">CI/CD — one pipeline for packages and modules</text>
+  <g font-family="Menlo, monospace" font-size="11" fill="#1c1917">
+    <text x="84" y="1192">push → Actions: lint + vitest → [tag?] publish @maple/ui + @maple/core to private npm → build module images → ECR → deploy (compose now, Fargate later)</text>
+    <text x="84" y="1214">develop → stage first · main → prod · rollback = previous image tag</text>
+  </g>
+  <text x="84" y="1238" font-size="10.5" fill="#6b6560" font-style="italic">exists today: ci.yml + SSH deploys building on the box — ECR + package publishing are the step-①/⑤ additions</text>
+
+  <!-- footer -->
+  <text x="40" y="1310" font-size="11.5" fill="#6b6560" font-style="italic">Read with: aws-deployment.md (phases + costs + AI track) · er-platform.md (proposed platform tables) · deps-graph.md (the no-imports rule) · rbac-matrix.md (step-② gaps) ·</text>
+  <text x="40" y="1330" font-size="11.5" fill="#6b6560" font-style="italic">event-catalog.md (dispatcher design). All hosted locally at http://localhost:8130.</text>
+  <text x="40" y="1364" font-size="12" fill="#6f1620" font-weight="bold">The platform test: a new module ships in a week and looks like it was always there. The business test: selling a module is flipping a flag.</text>
+</svg>
