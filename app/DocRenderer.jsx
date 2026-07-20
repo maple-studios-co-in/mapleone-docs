@@ -3,8 +3,12 @@ import { useEffect } from "react";
 
 // CDN modules loaded at runtime in the browser. webpackIgnore keeps Next/Turbopack
 // from trying to bundle these URL imports — they stay native dynamic imports.
-const MARKED = "https://cdn.jsdelivr.net/npm/marked@12/lib/marked.esm.js";
-const MERMAID = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+// Versions are pinned EXACTLY: mermaid lazy-loads hashed per-diagram chunks, and a
+// floating tag (@11) can serve an entry file whose chunk hashes no longer exist on
+// the CDN after a mermaid release — every diagram then fails with a fake
+// "Syntax error in text". Never un-pin these.
+const MARKED = "https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.esm.js";
+const MERMAID = "https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs";
 const ELK = "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.7/dist/mermaid-layout-elk.esm.min.mjs";
 const PANZOOM = "https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/+esm";
 
