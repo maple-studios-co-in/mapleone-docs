@@ -91,6 +91,12 @@ export default function DocRenderer({ markdown }) {
       }
 
       // ----- mermaid: ELK layout, house theme, de-lavender repaint, per-diagram pan/zoom -----
+      // React stamps circular __reactFiber refs onto DOM nodes, and the ELK layout
+      // plugin JSON-serializes a graph that can hold DOM element refs. On a plain
+      // page an element stringifies harmlessly to {}; on a React page it throws
+      // "Converting circular structure to JSON" and every SUBGRAPH diagram dies
+      // with a fake "Syntax error" card. toJSON restores plain-page behavior.
+      if (!Element.prototype.toJSON) Element.prototype.toJSON = function () { return {}; };
       const mermaid = (await import(/* webpackIgnore: true */ MERMAID)).default;
       let layout = "dagre";
       try {
